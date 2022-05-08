@@ -1,8 +1,8 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home/Home";
-import Hotel from "./Pages/Home/Hotel/Hotel";
-import List from "./component/List/List";
+import Hotel from "./Pages/Hotel/Hotel";
+import List from "./Pages/List/List";
 
 const App = () => {
   return (
