@@ -1,15 +1,28 @@
 import {
   faBed,
+  faCalendar,
   faCar,
   faChurch,
+  faPerson,
   faPlane,
   faTaxi,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useState } from "react";
 import "./Header.css";
+import { DateRange } from "react-date-range";
+import "react-date-range/dist/styles.css"; // main css file
+import "react-date-range/dist/theme/default.css"; // theme css file
+import { format } from "date-fns";
 
 const Header = () => {
+  const [state, setState] = useState([
+    {
+      startDate: new Date(),
+      endDate: new Date(),
+      key: "selection",
+    },
+  ]);
   return (
     <div className="header">
       <div className="headerContainer">
@@ -42,6 +55,37 @@ const Header = () => {
           with a free {"</sumancoding>"} account.
         </p>
         <button className="headerBtn">Sign In/ Register</button>
+        <div className="headerSearch">
+          <div className="headerSearchItem">
+            <FontAwesomeIcon icon={faBed} className="headerIcon" />
+            <input
+              type="text"
+              placeholder="Where are you going?"
+              className="headerSearchInput"
+            />
+          </div>
+          <div className="headerSearchItem">
+            <FontAwesomeIcon icon={faCalendar} className="headerIcon" />
+            <span classname="headerSearchText">{`${format(
+              state[0].startDate,
+              "MM/dd/yyyy"
+            )} to ${format(state[0].endDate, "MM/dd/yyyy")}`}</span>
+            <DateRange
+              editableDateInputs={true}
+              onChange={(item) => setState([item.selection])}
+              moveRangeOnFirstSelection={false}
+              ranges={state}
+              className="date"
+            />
+          </div>
+          <div className="headerSearchItem">
+            <FontAwesomeIcon icon={faPerson} className="headerIcon" />
+            <span classname="headerSearchText">2adults 1children 1 room</span>
+          </div>
+          <div className="headerSearchItem">
+            <button className="headerBtn">Search</button>
+          </div>
+        </div>
       </div>
     </div>
   );
