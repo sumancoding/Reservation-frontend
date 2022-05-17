@@ -2,8 +2,10 @@ import React from "react";
 import Header from "../../components/header/Header";
 import NavBar from "../../components/navbar/NavBar";
 import Featured from "../../components/featured/Featured";
+import PropertyList from "../../components/propertylist/PropertyList";
 import FeaturedProperties from "../../components/featuredProperties/FeaturedProperties";
 import Footer from "../../components/footer/Footer";
+import "./Home.css";
 
 const Home = () => {
   return (

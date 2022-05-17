@@ -1,4 +1,4 @@
-import "./featuredProperties.css";
+import "./FeaturedProperties.css";
 
 const FeaturedProperties = () => {
   return (
